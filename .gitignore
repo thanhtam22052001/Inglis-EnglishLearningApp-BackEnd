@@ -2,3 +2,4 @@ node_modules/
 
 dist/
 npm-debug.*
+app/common/connection.js
