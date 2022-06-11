@@ -11,6 +11,8 @@ var userRouter = require("./app/routes/user.router");
 var detaillessonRouter = require("./app/routes/detaillesson.router");
 var lessonRouter = require("./app/routes/lesson.router");
 var folderRouter = require("./app/routes/folder.router");
+var vocaRouter = require("./app/routes/vocabulary.router");
+var learningRouter = require("./app/routes/learning.router");
 
 // create application/json parser
 var jsonParser = bodyParser.json();
@@ -32,6 +34,8 @@ app.use("/user", userRouter);
 app.use("/detaillesson", detaillessonRouter);
 app.use("/lesson", lessonRouter);
 app.use("/folder", folderRouter);
+app.use("/vocabulary", vocaRouter);
+app.use("/learning", learningRouter);
 
 app.listen(3000, function () {
   console.log("get all course thanh cong");

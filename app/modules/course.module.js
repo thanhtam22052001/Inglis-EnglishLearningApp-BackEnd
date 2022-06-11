@@ -8,10 +8,13 @@ const Course = function (course) {
 };
 
 Course.getall = function (result) {
-  db.query("SELECT * FROM course", function (err, data, fields) {
-    console.log(err);
-    result(data);
-  });
+  db.query(
+    "select c.ID_Course as  id, c.Name_Course as  title, c.Number_Lesson as numLesson, c.Level as level, c.Information as desciption, c.Uri as source from course c;",
+    function (err, data, fields) {
+      console.log(err);
+      result(data);
+    }
+  );
 };
 Course.getContent = function (id, result) {
   db.query(
