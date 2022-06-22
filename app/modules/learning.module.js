@@ -20,4 +20,26 @@ Learning.get_RecommendCourse = function (id, result) {
     result(data);
   });
 };
+
+Learning.insert_Learning = function (newUser, result) {
+  db.query(
+    "INSERT INTO learning values (?,?,?,?,?,?,?,?)",
+    [
+      newUser.ID_User,
+      newUser.ID_Course,
+      newUser.ID_Lesson,
+      newUser.State,
+      newUser.Time,
+      newUser.Memorized,
+      newUser.No_Memorized,
+      newUser.Max_Point,
+    ],
+    function (err, data, fields) {
+      if (err) {
+        console.log(err);
+        result(err);
+      } else result("thanh cong");
+    }
+  );
+};
 module.exports = Learning;

@@ -10,3 +10,20 @@ exports.get_RecommendCourse = function (req, res) {
     res.send({ result: data });
   });
 };
+exports.insert_Learning = function (req, res) {
+  console.log(JSON.stringify(req.body) + "hello");
+  var newUser = {
+    ID_User: req.body.ID_User,
+    ID_Course: req.body.ID_Course,
+    ID_Lesson: req.body.ID_Lesson,
+    State: req.body.State,
+    Time: 0,
+    Memorized: 0,
+    No_Memorized: 0,
+    Max_Point: 0,
+  };
+
+  learningModule.insert_Learning(newUser, function (data) {
+    res.send({ result: data });
+  });
+};

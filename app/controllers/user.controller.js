@@ -5,6 +5,23 @@ exports.getUserByID = function (req, res) {
     res.send({ result: data });
   });
 };
+exports.updateRank = function (req, res) {
+  userModule.updateRank(req.params.id, req.params.rank, function (data) {
+    res.send({ result: data });
+  });
+};
+
+exports.updateUser = function (req, res) {
+  userModule.updateUser(
+    req.params.name,
+    req.params.phone,
+    req.params.job,
+    req.params.id,
+    function (data) {
+      res.send({ result: data });
+    }
+  );
+};
 exports.insert_User = function (req, res) {
   console.log(JSON.stringify(req.body) + "hello");
   var newUser = {

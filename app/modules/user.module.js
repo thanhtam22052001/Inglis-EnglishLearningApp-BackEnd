@@ -22,6 +22,27 @@ User.getUserByID = function (id, result) {
   );
 };
 
+User.updateRank = function (id, rank, result) {
+  db.query(
+    "UPDATE user SET user.Rank = ? WHERE ID_User = ?",
+    [rank, id],
+    function (err, data, fields) {
+      console.log(err);
+      result(data);
+    }
+  );
+};
+
+User.updateUser = function (name, phone, job, id) {
+  db.query(
+    "UPDATE user SET user.Name = ?, user.Phone = ?, user.Job = ? WHERE ID_User = ?",
+    [name, phone, job, id],
+    function (err, data, fields) {
+      console.log(err);
+      result(data);
+    }
+  );
+};
 User.insert_User = function (newUser, result) {
   db.query(
     "INSERT INTO user values (?,?,?,?,?,?,?,?,?)",
